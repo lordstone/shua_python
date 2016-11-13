@@ -23,6 +23,7 @@ def printList(head):
     print(s)
 
 
+# merge sort
 def sortList(head):
     """
     :type head: ListNode
