@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d10e85-99ca-4e18-9c1b-41d154b56fb7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sudokuSolver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/designTwitter.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rotateWords.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_project.iws" />
@@ -16,6 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/shua_python$rotateWords.coverage" NAME="rotateWords Coverage Results" MODIFIED="1481039972164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$cmp_fibonacci.coverage" NAME="cmp_fibonacci Coverage Results" MODIFIED="1474765160563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$regex.coverage" NAME="regex Coverage Results" MODIFIED="1479099590183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$stringEncoding.coverage" NAME="stringEncoding Coverage Results" MODIFIED="1477946340937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -56,11 +58,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ds_Trie.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ds_Trie.py">
+      <file leaf-file-name="designTwitter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/designTwitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rotateWords.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rotateWords.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,8 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/palindrome.py" />
         <option value="$PROJECT_DIR$/wordSquare.py" />
         <option value="$PROJECT_DIR$/shortestDistance.py" />
         <option value="$PROJECT_DIR$/stringEncoding.py" />
@@ -135,6 +145,8 @@
         <option value="$PROJECT_DIR$/wordPatternII.py" />
         <option value="$PROJECT_DIR$/recurringDecimal.py" />
         <option value="$PROJECT_DIR$/sudokuSolver.py" />
+        <option value="$PROJECT_DIR$/designTwitter.py" />
+        <option value="$PROJECT_DIR$/rotateWords.py" />
       </list>
     </option>
   </component>
@@ -205,25 +217,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.sudokuSolver">
-    <configuration default="false" name="firstMissingPositive" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="test_project" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/firstMissingPositive.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.rotateWords">
     <configuration default="false" name="word_search_ii" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -292,6 +286,24 @@
       <module name="test_project" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sudokuSolver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="rotateWords" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test_project" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rotateWords.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -505,19 +517,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
-      <item index="1" class="java.lang.String" itemvalue="Python.word_search_ii" />
-      <item index="2" class="java.lang.String" itemvalue="Python.wordLadderII" />
-      <item index="3" class="java.lang.String" itemvalue="Python.recurringDecimal" />
-      <item index="4" class="java.lang.String" itemvalue="Python.sudokuSolver" />
+      <item index="0" class="java.lang.String" itemvalue="Python.word_search_ii" />
+      <item index="1" class="java.lang.String" itemvalue="Python.wordLadderII" />
+      <item index="2" class="java.lang.String" itemvalue="Python.recurringDecimal" />
+      <item index="3" class="java.lang.String" itemvalue="Python.sudokuSolver" />
+      <item index="4" class="java.lang.String" itemvalue="Python.rotateWords" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sudokuSolver" />
-        <item index="1" class="java.lang.String" itemvalue="Python.recurringDecimal" />
-        <item index="2" class="java.lang.String" itemvalue="Python.wordLadderII" />
-        <item index="3" class="java.lang.String" itemvalue="Python.word_search_ii" />
-        <item index="4" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
+        <item index="0" class="java.lang.String" itemvalue="Python.rotateWords" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sudokuSolver" />
+        <item index="2" class="java.lang.String" itemvalue="Python.recurringDecimal" />
+        <item index="3" class="java.lang.String" itemvalue="Python.wordLadderII" />
+        <item index="4" class="java.lang.String" itemvalue="Python.word_search_ii" />
       </list>
     </recent_temporary>
   </component>
@@ -563,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480985266353</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated 12/5/2016">
+      <created>1481000054009</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1481000054009</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -606,7 +625,8 @@
     <MESSAGE value="shortestPalindrome update 11/21 8.17pm" />
     <MESSAGE value="updated 12/3/2016" />
     <MESSAGE value="updated 12/4/2016" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated 12/4/2016" />
+    <MESSAGE value="updated 12/5/2016" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated 12/5/2016" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -637,25 +657,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="152" />
+      <option name="time" value="159" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/palindrome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordSquare.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2475">
@@ -890,78 +896,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/orderDependency.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/windowSum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/overlapRectangle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/kNearestPoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/averageSubtreeNode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/copyRandomListNodes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/highestFiveScores.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/minimalSpanningTree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/special_set_1/longestPalindromeSubstring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/special_set_1/orderDependency.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/windowSum.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/overlapRectangle.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/kNearestPoints.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/averageSubtreeNode.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/copyRandomListNodes.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/highestFiveScores.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/minimalSpanningTree.py" />
+    <entry file="file://$PROJECT_DIR$/special_set_1/longestPalindromeSubstring.py" />
     <entry file="file://$PROJECT_DIR$/word_search_ii.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1014,6 +957,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/designTwitter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rotateWords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
