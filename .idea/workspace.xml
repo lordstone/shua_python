@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d10e85-99ca-4e18-9c1b-41d154b56fb7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/strongPasswordChecker.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordLadderII.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordPatternII.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/word_search_ii.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recurringDecimal.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ds_Trie.py" afterPath="$PROJECT_DIR$/ds_Trie.py" />
     </list>
     <ignored path="test_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +21,7 @@
     <SUITE FILE_PATH="coverage/test_project$stringEncoding.coverage" NAME="stringEncoding Coverage Results" MODIFIED="1477946340937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$regex.coverage" NAME="regex Coverage Results" MODIFIED="1477332883610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$BinaryIndexTree.coverage" NAME="BinaryIndexTree Coverage Results" MODIFIED="1477626597352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/shua_python$wordLadderII.coverage" NAME="wordLadderII Coverage Results" MODIFIED="1480905641466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/shua_python$wordLadderII.coverage" NAME="wordLadderII Coverage Results" MODIFIED="1480982342687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$LRUCache.coverage" NAME="LRUCache Coverage Results" MODIFIED="1479142786719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$binarytree.coverage" NAME="binarytree Coverage Results" MODIFIED="1477622696634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$alienDictionary.coverage" NAME="alienDictionary Coverage Results" MODIFIED="1478930330177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -45,6 +41,7 @@
     <SUITE FILE_PATH="coverage/shua_python$connectedCompInGraph.coverage" NAME="connectedCompInGraph Coverage Results" MODIFIED="1478816184845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$BinaryTreeTraversal.coverage" NAME="BinaryTreeTraversal Coverage Results" MODIFIED="1479072754541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$wordSquare.coverage" NAME="wordSquare Coverage Results" MODIFIED="1477946312148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/shua_python$recurringDecimal.coverage" NAME="recurringDecimal Coverage Results" MODIFIED="1480985256567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test_project$zigzag.coverage" NAME="zigzag Coverage Results" MODIFIED="1477673168017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$skyline.coverage" NAME="skyline Coverage Results" MODIFIED="1478812963005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/shua_python$strobogrammaticNumberIII.coverage" NAME="strobogrammaticNumberIII Coverage Results" MODIFIED="1479061394507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -63,31 +60,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <marker date="1480813068962" expanded="true" signature="47:150" ph="..." />
-                <marker date="1480813068962" expanded="true" signature="182:235" ph="..." />
-                <marker date="1480813068962" expanded="true" signature="286:546" ph="..." />
-                <marker date="1480813068962" expanded="true" signature="309:480" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strongPasswordChecker.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strongPasswordChecker.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordPatternII.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wordPatternII.py">
+      <file leaf-file-name="recurringDecimal.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/recurringDecimal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="1056">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,7 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BinaryIndexTree.py" />
         <option value="$PROJECT_DIR$/zigzag.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/palindrome.py" />
@@ -162,6 +143,7 @@
         <option value="$PROJECT_DIR$/strongPasswordChecker.py" />
         <option value="$PROJECT_DIR$/wordLadderII.py" />
         <option value="$PROJECT_DIR$/wordPatternII.py" />
+        <option value="$PROJECT_DIR$/recurringDecimal.py" />
       </list>
     </option>
   </component>
@@ -232,25 +214,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.wordLadderII">
-    <configuration default="false" name="LRUCache" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="test_project" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LRUCache.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.recurringDecimal">
     <configuration default="false" name="wordBreak" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -319,6 +283,24 @@
       <module name="test_project" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wordLadderII.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="recurringDecimal" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="test_project" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recurringDecimal.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -532,19 +514,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.LRUCache" />
-      <item index="1" class="java.lang.String" itemvalue="Python.wordBreak" />
-      <item index="2" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
-      <item index="3" class="java.lang.String" itemvalue="Python.word_search_ii" />
-      <item index="4" class="java.lang.String" itemvalue="Python.wordLadderII" />
+      <item index="0" class="java.lang.String" itemvalue="Python.wordBreak" />
+      <item index="1" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
+      <item index="2" class="java.lang.String" itemvalue="Python.word_search_ii" />
+      <item index="3" class="java.lang.String" itemvalue="Python.wordLadderII" />
+      <item index="4" class="java.lang.String" itemvalue="Python.recurringDecimal" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.wordLadderII" />
-        <item index="1" class="java.lang.String" itemvalue="Python.word_search_ii" />
-        <item index="2" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
-        <item index="3" class="java.lang.String" itemvalue="Python.wordBreak" />
-        <item index="4" class="java.lang.String" itemvalue="Python.LRUCache" />
+        <item index="0" class="java.lang.String" itemvalue="Python.recurringDecimal" />
+        <item index="1" class="java.lang.String" itemvalue="Python.wordLadderII" />
+        <item index="2" class="java.lang.String" itemvalue="Python.word_search_ii" />
+        <item index="3" class="java.lang.String" itemvalue="Python.firstMissingPositive" />
+        <item index="4" class="java.lang.String" itemvalue="Python.wordBreak" />
       </list>
     </recent_temporary>
   </component>
@@ -576,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480810197984</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated 12/4/2016">
+      <created>1480920437764</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480920437765</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -589,7 +578,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30454546" sideWeight="0.4924406" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30454546" sideWeight="0.4924406" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -618,7 +607,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="shortestPalindrome update 11/21 8.17pm" />
     <MESSAGE value="updated 12/3/2016" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated 12/3/2016" />
+    <MESSAGE value="updated 12/4/2016" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated 12/4/2016" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -649,19 +639,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="116" />
+      <option name="time" value="123" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BinaryIndexTree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zigzag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -997,19 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ds_Trie.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <marker date="1480813068962" expanded="true" signature="47:150" ph="..." />
-            <marker date="1480813068962" expanded="true" signature="182:235" ph="..." />
-            <marker date="1480813068962" expanded="true" signature="286:546" ph="..." />
-            <marker date="1480813068962" expanded="true" signature="309:480" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordLadderII.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1466">
@@ -1030,6 +999,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ds_Trie.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recurringDecimal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
