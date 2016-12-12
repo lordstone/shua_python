@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10d10e85-99ca-4e18-9c1b-41d154b56fb7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/encodeStringShortestLength.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findRadius.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/oneAndZeroes.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recoverTree.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/varifyPreorder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fourSumII.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/removeKDigits.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_project.iws" />
@@ -63,21 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="oneAndZeroes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneAndZeroes.py">
+      <file leaf-file-name="removeKDigits.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/removeKDigits.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="encodeStringShortestLength.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/encodeStringShortestLength.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state relative-caret-position="298">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -101,8 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/skyline.py" />
-        <option value="$PROJECT_DIR$/countNumWithUniqueDigits.py" />
         <option value="$PROJECT_DIR$/connectedCompInGraph.py" />
         <option value="$PROJECT_DIR$/generateAbbreviation.py" />
         <option value="$PROJECT_DIR$/sortTransformedArray.py" />
@@ -152,6 +137,8 @@
         <option value="$PROJECT_DIR$/findRadius.py" />
         <option value="$PROJECT_DIR$/oneAndZeroes.py" />
         <option value="$PROJECT_DIR$/encodeStringShortestLength.py" />
+        <option value="$PROJECT_DIR$/fourSumII.py" />
+        <option value="$PROJECT_DIR$/removeKDigits.py" />
       </list>
     </option>
   </component>
@@ -594,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481045664056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated 12/11/2016">
+      <created>1481519845317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1481519845317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -639,7 +633,8 @@
     <MESSAGE value="updated 12/4/2016" />
     <MESSAGE value="updated 12/5/2016" />
     <MESSAGE value="updated 12/6/2016" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated 12/6/2016" />
+    <MESSAGE value="updated 12/11/2016" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated 12/11/2016" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -675,20 +670,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/countNumWithUniqueDigits.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/connectedCompInGraph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generateAbbreviation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -978,18 +959,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/encodeStringShortestLength.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/oneAndZeroes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="330">
           <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/encodeStringShortestLength.py">
+    <entry file="file://$PROJECT_DIR$/fourSumII.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="-131">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/removeKDigits.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding />
         </state>
       </provider>
