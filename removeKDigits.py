@@ -1,19 +1,20 @@
-class SlowSolution(object):
+class Solution(object):
     def removeKdigits(self, num, k):
         """
         :type num: str
         :type k: int
         :rtype: str
         """
-        if k == 0: return num
-        if len(num) < 2: return '0'
-        res, flag, zflag = '', False, False
+        res = ['0']
         for i in range(len(num)):
-            if flag or (i < len(num)-1 and num[i] <= num[i+1]):
-                if num[i] != '0' or zflag:
-                    res += num[i]
-                    zflag = True
-            else:
-                flag = True
-        if res == '': res = '0'
-        return self.removeKdigits(res, k-1)
+            while res[-1] > num[i] and len(res) + k > i + 1:
+                res.pop()
+            res.append(num[i])
+        while len(res) > len(num) - k + 1:
+            res.pop()
+        return str(int(''.join(res)))
+
+
+s = Solution()
+s1 = '123129874198749187239287042981029380129831209401290912039128301298301294019'
+print(s.removeKdigits(s1, 10))
