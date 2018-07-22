@@ -1,5 +1,5 @@
 import unittest
-from lib.binary_tree import BinaryTreeNode
+from util.binary_tree import BinaryTreeNode
 
 
 class Subtree(object):
