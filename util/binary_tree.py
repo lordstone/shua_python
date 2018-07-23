@@ -55,3 +55,9 @@ class Test(unittest.TestCase):
         self.assertEqual(t1.left.left.left, None)
         self.assertEqual(t1.left.left.right.val, 'e')
         self.assertEqual(t1.left.right.left.val, 'f')
+
+        t2 = BinaryTreeNode.produce([['a', 'b', 'c']])
+        self.assertNotEqual(t2, None)
+        self.assertEqual(t2.val, 'a')
+        self.assertEqual(t2.left.val, 'b')
+        self.assertEqual(t2.right.val, 'c')
