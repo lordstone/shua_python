@@ -17,7 +17,22 @@ class LinkedListNode(object):
             prev = node
         return prev
 
-    def is_equal(self, other):
+    @staticmethod
+    def is_equal(a, b):
+        if a is None or b is None:
+            return a is None and b is None
+        if a.val != b.val:
+            return False
+        return LinkedListNode.is_equal(a.next, b.next)
+
+    def print(self):
+        cur = self
+        s = ''
+        while cur:
+            s += str(cur.val) + '->'
+            cur = cur.next
+        s += '(EOL)'
+        print(s)
 
 
 class Test(unittest.TestCase):
@@ -36,3 +51,10 @@ class Test(unittest.TestCase):
         self.assertEqual(ll1.next.val, 'b')
         self.assertEqual(ll1.next.next.next.next.val, 'e')
         self.assertEqual(ll1.next.next.next.next.next, None)
+
+    def test_isequal(self):
+        ll1 = LinkedListNode.produce(['a', 'b', 'c', 'd', 'e'])
+        ll2 = LinkedListNode.produce(['a', 'b', 'c', 'd', 'e'])
+        ll3 = LinkedListNode.produce(['a', 'b', 'c', 'd'])
+        self.assertEqual(LinkedListNode.is_equal(ll1, ll2), True)
+        self.assertEqual(LinkedListNode.is_equal(ll1, ll3), False)
