@@ -26,6 +26,13 @@ class BinaryTreeNode(object):
                 nodemap[parent].right = nodemap[right]
         return nodemap[head]
 
+    @staticmethod
+    def compare(a, b):
+        if a is None or b is None:
+            return a is None and b is None
+        return a.val == b.val and BinaryTreeNode.compare(a.left, b.left) \
+            and BinaryTreeNode.compare(a.right, b.right)
+
 
 class Test(unittest.TestCase):
     def test_binarytreenode_init(self):
@@ -61,3 +68,11 @@ class Test(unittest.TestCase):
         self.assertEqual(t2.val, 'a')
         self.assertEqual(t2.left.val, 'b')
         self.assertEqual(t2.right.val, 'c')
+
+    def test_compare(self):
+        t1 = BinaryTreeNode.produce([['a', 'b'], ['b', 'c', 'd'], ['c', None, 'e'], ['d', 'f']])
+        t2 = BinaryTreeNode.produce([['a', 'b', 'c']])
+        self.assertEqual(BinaryTreeNode.compare(t1, t2), False)
+        self.assertEqual(BinaryTreeNode.compare(t1, t1), True)
+        self.assertEqual(BinaryTreeNode.compare(t1, None), False)
+        self.assertEqual(BinaryTreeNode.compare(None, None), True)
