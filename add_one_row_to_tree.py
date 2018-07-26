@@ -12,6 +12,8 @@ class AddRow(object):
             else:
                 node.left = root
             return node
+        elif root is None:
+            return None
         elif d == 2:
             root.left, root.right = self.add_row(root.left, v, 1), self.add_row(root.right, v, 1, True)
         else:
