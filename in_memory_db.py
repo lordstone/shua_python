@@ -1,5 +1,4 @@
-from abc import ABC, abstractmethod
-from typing import Any, Optional
+from typing import Any, List, Optional, Protocol
 
 
 def assert_or_print(actual_res: Any, exp_res: Any):
@@ -7,31 +6,39 @@ def assert_or_print(actual_res: Any, exp_res: Any):
         print(f"actual result: {actual_res}, expected result: {exp_res}")
 
 
-class DatabaseInterface(ABC):
+class DatabaseInterfaceL1(Protocol):
 
-    @abstractmethod
     def get(self, timestamp: int, key: str, field: str) -> str:
-        pass
+        ...
 
-    @abstractmethod
     def set(self, timestamp: int, key: str, field: str, value: str):
-        pass
+        ...
     
-    @abstractmethod
     def compare_and_set(self, timestamp: int, key: str, field: str, expected_value: str, new_value: str) -> bool:
-        pass
+        ...
     
-    @abstractmethod
     def compare_and_delete(self, timestamp: int, key: str, field: str,expected_value: str) -> bool:
-        pass
+        ...
 
-    @abstractmethod
     def delete(self, timestamp: int, key: str, field: str):
-        pass
+        ...
 
 
-class DatabaseImpl(DatabaseInterface):
+class DatabaseInterfaceL2(Protocol):
 
+    def scan(self, timestamp: int, key: str) -> List[str]:
+        ...
+
+    def scan_with_prefix(self, timestamp: int, key: str, prefix: str) -> List[str]:
+        ...
+
+
+class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2):
+
+    # FIXME: the field or value cannot include `sep`.
+    sep = ":"
+
+    # L1
     def __init__(self):
         self.records: dict[dict] = {}
 
@@ -74,10 +81,33 @@ class DatabaseImpl(DatabaseInterface):
         if field not in record:
             return
         del record[field]
+    
+    # L2
+    def scan(self, timestamp: int, key: str) -> List[str]:
+        if key not in self.records:
+            return []
+        record: Dict[str, str] = self.records[key]
+        ret: List[str] = []
+        for fld, val in record.items():
+            ret.append(f"{fld}{self.sep}{val}")
+        ret.sort(key=lambda rec: rec.rsplit(":", maxsplit=1)[0])
+        return ret
+        
+
+    def scan_with_prefix(self, timestamp: int, key: str, prefix: str) -> List[str]:
+        if key not in self.records:
+            return []
+        record: Dict[str, str] = self.records[key]
+        ret: List[str] = []
+        for fld, val in record.items():
+            if fld.startswith(prefix):
+                ret.append(f"{fld}{self.sep}{val}")
+        ret.sort(key=lambda rec: rec.rsplit(":", maxsplit=1)[0])
+        return ret
 
 
 def test_level_1():
-    db: DatabaseInterface = DatabaseImpl()
+    db = DatabaseImpl()
     assert_or_print(db.get(0, "a", "f"), None)
     db.set(1, "a", "f", "v")
     assert_or_print(db.get(2, "a", "f"), "v")
@@ -89,12 +119,28 @@ def test_level_1():
     assert_or_print(db.get(8, "a", "f"), None)
     db.set(9, "a", "f", "v")
     assert_or_print(db.get(10, "a", "f"), "v")
-    db.delete(9, "a", "f")
-    assert_or_print(db.get(8, "a", "f"), None)
+    db.delete(11, "a", "f")
+    assert_or_print(db.get(12, "a", "f"), None)
+
+
+def test_level_2():
+    db = DatabaseImpl()
+    db.set(0, "a", "f1.1", "v.v")
+    db.set(1, "a", "f2", "u")
+    db.set(2, "a", "f1", "v")
+    db.set(3, "a", "f3", "w")
+    db.set(4, "a", "f1.1.1", "v.v.v")
+    assert_or_print(db.scan(5, "a"), [
+        "f1:v", "f1.1:v.v", "f1.1.1:v.v.v", "f2:u", "f3:w",
+        ])
+    assert_or_print(db.scan_with_prefix(6, "a", "f1"), [
+        "f1:v", "f1.1:v.v", "f1.1.1:v.v.v",
+        ])
 
 
 def main():
     test_level_1()
+    test_level_2()
 
 
 if __name__ == "__main__":

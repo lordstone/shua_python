@@ -1,0 +1,18 @@
+不知道为什么recruiter发了OA，是新增加的环节么？
+Recruiter说完全不用担心，不用准备，只要做了就能过。刚刚做了，感觉也不是那么简单…
+全程90分钟，一共有四个level的coding题，可以理解为同一个题的各种follow up。每个level有几十个testcase。把一个level的testcase全部通过后，就会解锁下一个level。
+这是我的题目：
+要求实现一个in-memory database, 其中每个 key 对应一条记录（record），每条记录包含多个字段（field），每个字段有一个值（value）。
+Level 1 要求实现Get Set CompareAndSet CompareAndDelete 以及Delete函数
+Set函数有四个参数 timestamp, key, field和value。其他类似。timestamp在后面level 3的时候才会用到。
+Level 2 新增：
+        •        Scan(timestamp, key)：按字典序打印该 key 的所有 field 和 value。
+        •        ScanWithPrefix(timestamp, key, prefix)：只打印以 prefix 开头的字段。
+Level 3 新增：
+        •        SetWithTTL(timestamp, key, field, value, ttl)
+并要求：
+        •        所有读取操作自动忽略已过期的field。
+Level 4：新增：
+        •        GetAtTimestamp(timestamp, key, field, at_timestamp)
+即你需要返回某个过去时间点时，特定 key 和 field 对应的 value。
+Level 4感觉要用到三层嵌套的数据结构：unordered_map<string, map<string, map<int, int>>> db;
