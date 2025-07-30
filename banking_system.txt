@@ -1,0 +1,6 @@
+总共四个测试，形式类似给一个design题，不是一起给出来，是闯关形式。过了当前level的test case才会开新的题目。全程要求share entire screen，开摄像头和mic。
+没能做完，感觉难点主要是时间分配和对于每新开一轮增加题目后，有可能对原来设计的数据结构有影响，运气不好可能需要重新设计。
+给的题目是设计一个bank system，
+level 1：就是创建account，增加和转出balance
+level2: 统计转出钱最多的n个用户，这里有点坑的是我自己创建了一个新object，没放在同class，而是另外放的，一直报错说找不到，依据新object做的改写也一直飘红线，楼主试图debug和理解为啥会飘红线，后来run了发现，就是网站抽抽了，其实能跑，但是前期搞太久了。
+level3: 新增schedule payment和cancel，时间不够了，只写了corner case啥的，schedule payment input给了timestamp和delay，要求返回string，大概就是按照先后顺序拼account，schedule payment也算转出，需要更新之前转出钱最多的n个用户
