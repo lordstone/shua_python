@@ -1,9 +1,10 @@
-from typing import Any, List, Optional, Protocol
+import sys
+from typing import Any, Dict, List, Optional, Protocol, Tuple
 
 
-def assert_or_print(actual_res: Any, exp_res: Any):
+def assert_or_print(actual_res: Any, exp_res: Any, lino: Optional[int] = None):
     if actual_res != exp_res:
-        print(f"actual result: {actual_res}, expected result: {exp_res}")
+        print(f"actual result: {actual_res}, expected result: {exp_res} in line number {lino if lino else 'unknown'}")
 
 
 class DatabaseInterfaceL1(Protocol):
@@ -33,14 +34,23 @@ class DatabaseInterfaceL2(Protocol):
         ...
 
 
-class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2):
+class DatabaseInterfaceL3(Protocol):
+
+    def set_with_ttl(self, timestamp: int, key: str, field: str, value: str, ttl: int):
+        ...
+
+
+class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3):
 
     # FIXME: the field or value cannot include `sep`.
     sep = ":"
 
+    max_timestamp = sys.maxsize
+
     # L1
     def __init__(self):
-        self.records: dict[dict] = {}
+        # value, expiry: `max_timestamp` to be never expiring
+        self.records: Dict[Dict[str, Tuple[str, int]]] = {}
 
     def get(self, timestamp: int, key: str, field: str) -> Optional[str]:
         if key not in self.records:
@@ -48,28 +58,31 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2):
         record = self.records[key]
         if field not in record:
             return None
-        return record[field]
+        val, expiry = record[field]
+        if expiry == self.max_timestamp or expiry >= timestamp:
+            return val
+        return None
 
     def set(self, timestamp: int, key: str, field: str, value: str):
         if key not in self.records:
             self.records[key] = {}
         record = self.records[key]
-        record[field] = value
+        record[field] = (value, self.max_timestamp)
     
     def compare_and_set(self, timestamp: int, key: str, field: str, expected_value: str, new_value: str) -> bool:
         if key not in self.records:
             return False
         record = self.records[key]
-        if field not in record or record[field] != expected_value:
+        if field not in record or record[field][1] <= timestamp or record[field][0] != expected_value:
             return False
-        record[field] = new_value
+        record[field] = (new_value, record[field][1])
         return True
     
     def compare_and_delete(self, timestamp: int, key: str, field: str, expected_value: str) -> bool:
         if key not in self.records:
             return False
         record = self.records[key]
-        if field not in record or record[field] != expected_value:
+        if field not in record or record[field][1] <= timestamp or record[field][0] != expected_value:
             return False
         del record[field]
         return True
@@ -88,7 +101,9 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2):
             return []
         record: Dict[str, str] = self.records[key]
         ret: List[str] = []
-        for fld, val in record.items():
+        for fld, (val, expiry) in record.items():
+            if timestamp >= expiry:
+                continue
             ret.append(f"{fld}{self.sep}{val}")
         ret.sort(key=lambda rec: rec.rsplit(":", maxsplit=1)[0])
         return ret
@@ -99,28 +114,40 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2):
             return []
         record: Dict[str, str] = self.records[key]
         ret: List[str] = []
-        for fld, val in record.items():
+        for fld, (val, expiry) in record.items():
+            if timestamp >= expiry:
+                continue
             if fld.startswith(prefix):
                 ret.append(f"{fld}{self.sep}{val}")
         ret.sort(key=lambda rec: rec.rsplit(":", maxsplit=1)[0])
         return ret
+    
+    # L3
+    def set_with_ttl(self, timestamp, key, field, value, ttl):
+        if ttl <= 0:
+            return
+        expiry = timestamp + ttl
+        if key not in self.records:
+            self.records[key] = {}
+        record = self.records[key]
+        record[field] = (value, expiry)
 
 
 def test_level_1():
     db = DatabaseImpl()
-    assert_or_print(db.get(0, "a", "f"), None)
+    assert_or_print(db.get(0, "a", "f"), None, 138)
     db.set(1, "a", "f", "v")
-    assert_or_print(db.get(2, "a", "f"), "v")
-    assert_or_print(db.compare_and_set(3, "a", "f", "q", "u"), False)
-    assert_or_print(db.compare_and_set(4, "a", "f", "v", "u"), True)
-    assert_or_print(db.get(5, "a", "f"), "u")
-    assert_or_print(db.compare_and_delete(6, "a", "f", "v"), False)
-    assert_or_print(db.compare_and_delete(7, "a", "f", "u"), True)
-    assert_or_print(db.get(8, "a", "f"), None)
+    assert_or_print(db.get(2, "a", "f"), "v", 140)
+    assert_or_print(db.compare_and_set(3, "a", "f", "q", "u"), False, 141)
+    assert_or_print(db.compare_and_set(4, "a", "f", "v", "u"), True, 142)
+    assert_or_print(db.get(5, "a", "f"), "u", 143)
+    assert_or_print(db.compare_and_delete(6, "a", "f", "v"), False, 144)
+    assert_or_print(db.compare_and_delete(7, "a", "f", "u"), True, 145)
+    assert_or_print(db.get(8, "a", "f"), None, 146)
     db.set(9, "a", "f", "v")
-    assert_or_print(db.get(10, "a", "f"), "v")
+    assert_or_print(db.get(10, "a", "f"), "v", 147)
     db.delete(11, "a", "f")
-    assert_or_print(db.get(12, "a", "f"), None)
+    assert_or_print(db.get(12, "a", "f"), None, 148)
 
 
 def test_level_2():
@@ -132,15 +159,41 @@ def test_level_2():
     db.set(4, "a", "f1.1.1", "v.v.v")
     assert_or_print(db.scan(5, "a"), [
         "f1:v", "f1.1:v.v", "f1.1.1:v.v.v", "f2:u", "f3:w",
-        ])
+        ], 162)
     assert_or_print(db.scan_with_prefix(6, "a", "f1"), [
         "f1:v", "f1.1:v.v", "f1.1.1:v.v.v",
+        ], 165)
+
+
+def test_level_3():
+    db = DatabaseImpl()
+    assert_or_print(db.get(0, "a", "f"), None)
+    db.set_with_ttl(1, "a", "f", "v", 3)
+    assert_or_print(db.get(2, "a", "f"), "v")
+    assert_or_print(db.compare_and_set(3, "a", "f", "v", "u"), True)
+    assert_or_print(db.compare_and_set(4, "a", "f", "u", "v"), False)
+    assert_or_print(db.get(5, "a", "f"), None)
+    assert_or_print(db.compare_and_delete(6, "a", "f", "v"), False)
+    assert_or_print(db.compare_and_delete(7, "a", "f", "u"), False)
+    assert_or_print(db.get(8, "a", "f"), None)
+    db.set_with_ttl(9, "a", "f.1.1", "v", 4)
+    db.set_with_ttl(10, "a", "f.2.3", "u", 4)
+    assert_or_print(db.scan(11, "a"), [
+        "f.1.1:v", "f.2.3:u"
         ])
+    assert_or_print(db.scan_with_prefix(12, "a", "f.1"), [
+        "f.1.1:v"
+        ])
+    assert_or_print(db.scan(13, "a"), [
+        "f.2.3:u"
+        ])
+    assert_or_print(db.scan_with_prefix(14, "a", "f.2"), [])
 
 
 def main():
     test_level_1()
     test_level_2()
+    test_level_3()
 
 
 if __name__ == "__main__":

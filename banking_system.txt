@@ -1,3 +1,5 @@
+https://www.1point3acres.com/bbs/thread-1138709-1-1.html
+
 总共四个测试，形式类似给一个design题，不是一起给出来，是闯关形式。过了当前level的test case才会开新的题目。全程要求share entire screen，开摄像头和mic。
 没能做完，感觉难点主要是时间分配和对于每新开一轮增加题目后，有可能对原来设计的数据结构有影响，运气不好可能需要重新设计。
 给的题目是设计一个bank system，
