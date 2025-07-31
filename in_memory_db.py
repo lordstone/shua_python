@@ -1,3 +1,4 @@
+import bisect
 import sys
 from typing import Any, Dict, List, Optional, Protocol, Tuple
 
@@ -39,8 +40,13 @@ class DatabaseInterfaceL3(Protocol):
     def set_with_ttl(self, timestamp: int, key: str, field: str, value: str, ttl: int):
         ...
 
+class DatabaseInterfaceL4(Protocol):
 
-class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3):
+    def get_at_timestamp(self, timestamp: int, key: str, field: str, at_timestamp: int):
+        ...
+
+
+class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3, DatabaseInterfaceL4):
 
     # FIXME: the field or value cannot include `sep`.
     sep = ":"
@@ -50,7 +56,21 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
     # L1
     def __init__(self):
         # value, expiry: `max_timestamp` to be never expiring
-        self.records: Dict[Dict[str, Tuple[str, int]]] = {}
+        self.records: Dict[str, Dict[str, Tuple[str, int]]] = {}
+
+        # timestamp, optional of value
+        self.record_logs: Dict[str, Dict[str, List[Tuple[int, Optional[str]]]]] = {}
+
+    def _snapshot(self, timestamp: int, key: str, field: str, value: Optional[str], expiry: Optional[int] = None):
+        if key not in self.record_logs:
+            self.record_logs[key] = {}
+        rlog = self.record_logs[key]
+        if field not in rlog:
+            rlog[field] = []
+        flog = rlog[field]
+        bisect.insort_left(flog, (timestamp, value), key=lambda x: x[0])
+        if expiry:
+            bisect.insort_left(flog, (expiry, None), key=lambda x: x[0])
 
     def get(self, timestamp: int, key: str, field: str) -> Optional[str]:
         if key not in self.records:
@@ -68,6 +88,7 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
             self.records[key] = {}
         record = self.records[key]
         record[field] = (value, self.max_timestamp)
+        self._snapshot(timestamp, key, field, value)
     
     def compare_and_set(self, timestamp: int, key: str, field: str, expected_value: str, new_value: str) -> bool:
         if key not in self.records:
@@ -76,6 +97,7 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
         if field not in record or record[field][1] <= timestamp or record[field][0] != expected_value:
             return False
         record[field] = (new_value, record[field][1])
+        self._snapshot(timestamp, key, field, new_value)
         return True
     
     def compare_and_delete(self, timestamp: int, key: str, field: str, expected_value: str) -> bool:
@@ -85,6 +107,7 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
         if field not in record or record[field][1] <= timestamp or record[field][0] != expected_value:
             return False
         del record[field]
+        self._snapshot(timestamp, key, field, None)
         return True
 
     def delete(self, timestamp: int, key: str, field: str):
@@ -94,6 +117,7 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
         if field not in record:
             return
         del record[field]
+        self._snapshot(timestamp, key, field, None)
     
     # L2
     def scan(self, timestamp: int, key: str) -> List[str]:
@@ -131,6 +155,22 @@ class DatabaseImpl(DatabaseInterfaceL1, DatabaseInterfaceL2, DatabaseInterfaceL3
             self.records[key] = {}
         record = self.records[key]
         record[field] = (value, expiry)
+        self._snapshot(timestamp, key, field, value, expiry)
+    
+    # L4
+    def get_at_timestamp(self, timestamp: int, key: str, field: str, at_timestamp: int) -> Optional[str]:
+        if key not in self.record_logs:
+            return
+        rlog = self.record_logs[key]
+        if field not in rlog:
+            return
+        flog = rlog[field]
+        if not flog:
+            return None
+        idx = bisect.bisect_right(flog, at_timestamp, key=lambda x: x[0]) - 1
+        if idx < 0:
+            return None
+        return flog[idx][1]
 
 
 def test_level_1():
@@ -190,10 +230,23 @@ def test_level_3():
     assert_or_print(db.scan_with_prefix(14, "a", "f.2"), [])
 
 
+def test_level_4():
+    db = DatabaseImpl()
+    db.set(1, 'a', 'f', 'v')
+    assert_or_print(db.get_at_timestamp(2, 'a', 'f', 0), None, 234)
+    assert_or_print(db.get_at_timestamp(3, 'a', 'f', 1), "v", 235)
+    assert_or_print(db.get_at_timestamp(4, 'a', 'f', 2), "v", 236)
+    db.set_with_ttl(5, 'a', 'g', 'u', 1)
+    assert_or_print(db.get_at_timestamp(6, 'a', 'g', 4), None, 237)
+    assert_or_print(db.get_at_timestamp(7, 'a', 'g', 5), "u", 238)
+    assert_or_print(db.get_at_timestamp(8, 'a', 'g', 6), None, 239)
+
+
 def main():
     test_level_1()
     test_level_2()
     test_level_3()
+    test_level_4()
 
 
 if __name__ == "__main__":
